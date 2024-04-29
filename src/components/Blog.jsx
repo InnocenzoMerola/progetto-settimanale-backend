@@ -5,12 +5,14 @@ import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import logo from "../img/I&M-LOGO.jpg";
-import Container from "react-bootstrap/esm/Container";
+import Container from "react-bootstrap/Container";
+import Button from "react-bootstrap/Button";
 
 const Blog = function () {
   const [posts, setPosts] = useState([]);
   const [lastPage, setLastPage] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const [deletes, setDeletes] = useState(0);
 
   useEffect(() => {
     fetch(`${baseApiUrl}/posts?&_embed=1`)
@@ -27,7 +29,7 @@ const Blog = function () {
         setPosts(data);
       })
       .catch((error) => console.log("Errore", error));
-  }, [currentPage]);
+  }, [currentPage, deletes]);
 
   const changePage = (page) => {
     setCurrentPage(page);
@@ -44,6 +46,19 @@ const Blog = function () {
     return pagination;
   };
 
+  const deletePost = (postId) => {
+    const authString = btoa("Enzo:synx gWI7 92AI U4FJ 8cnF dIB8");
+    fetch(`${baseApiUrl}/posts/${postId}`, {
+      headers: {
+        Authorization: `Basic ${authString}`,
+      },
+      method: "DELETE",
+    }).then((response) => {
+      if (response.ok) {
+        setDeletes(deletes + 1);
+      }
+    });
+  };
   return (
     <>
       <Container className="my-4">
@@ -60,6 +75,9 @@ const Blog = function () {
                 <Card.Body className="my-cb">
                   <Card.Title>{post.title.rendered}</Card.Title>
                   <Link to={`/posts/${post.id}`}>Go somewhere</Link>
+                  <Button variant="danger" onClick={() => deletePost(post.id)}>
+                    Elimina
+                  </Button>
                 </Card.Body>
               </Card>
             </Col>
