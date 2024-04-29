@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import MyNav from "./components/MyNav";
 import Blog from "./components/Blog";
 import DetailPage from "./components/DetailPage";
+import BackHome from "./components/BackHome";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/back" element={<BackHome />} />
         <Route path="/posts/:id" element={<DetailPage />} />
       </Routes>
     </BrowserRouter>

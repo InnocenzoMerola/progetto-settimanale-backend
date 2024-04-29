@@ -7,6 +7,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import logo from "../img/I&M-LOGO.jpg";
 import Container from "react-bootstrap/esm/Container";
+import BackHome from "./BackHome";
 
 const Home = function () {
   const [posts, setPosts] = useState([]);
@@ -30,29 +31,34 @@ const Home = function () {
   return (
     <>
       <Container fluid className="mb-4 my-cont">
+        <BackHome />
         <div className="mx-3 top-div">
-          <h1>Goditi la tua vacanza da sogno</h1>
-          <h2>Scopri nuovi orizzonti</h2>
-          <p>Ci impegniamo a offrire servizi di viaggio della massima qualità. </p>
+          <h1>Il mio viaggio</h1>
+          <h2>Alla scoperta di nuovi orizzonti</h2>
         </div>
-
-        <Row className="row-gap-3">
-          {posts.map((post) => (
-            <Col xs={12} md={3} key={post.id}>
-              <Card className="h-card">
-                <Card.Img
-                  variant="top"
-                  className="home-img"
-                  src={post._embedded["wp:featuredmedia"] ? post._embedded["wp:featuredmedia"][0].source_url : logo}
-                />
-                <Card.Body>
-                  <Card.Title>{post.title.rendered}</Card.Title>
-                  <Link to={`/posts/${post.id}`}>Go somewhere</Link>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
-        </Row>
+        <Container>
+          <div className="text-center">
+            <h2>Le migliori tappe per l'estate 2024</h2>
+            <p>Ecco alcuni dei migliori posti in cui andare questa estate: mare, montagna e molto altro...</p>
+          </div>
+          <Row className="row-gap-3">
+            {posts.slice(0, 3).map((post) => (
+              <Col xs={12} md={4} key={post.id}>
+                <Card className="h-card">
+                  <Card.Img
+                    variant="top"
+                    className="home-img"
+                    src={post._embedded["wp:featuredmedia"] ? post._embedded["wp:featuredmedia"][0].source_url : logo}
+                  />
+                  <Card.Body>
+                    <Card.Title>{post.title.rendered}</Card.Title>
+                    <Link to={`/posts/${post.id}`}>Go somewhere</Link>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        </Container>
       </Container>
     </>
   );

@@ -7,6 +7,7 @@ import Col from "react-bootstrap/Col";
 import logo from "../img/I&M-LOGO.jpg";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
+import Pagination from "react-bootstrap/Pagination";
 
 const Blog = function () {
   const [posts, setPosts] = useState([]);
@@ -15,7 +16,7 @@ const Blog = function () {
   const [deletes, setDeletes] = useState(0);
 
   useEffect(() => {
-    fetch(`${baseApiUrl}/posts?&_embed=1`)
+    fetch(`${baseApiUrl}/posts?page=${currentPage}&_embed=1`)
       .then((response) => {
         if (response.ok) {
           setLastPage(parseInt(response.headers.get("X-WP-TotalPages")));
@@ -74,14 +75,34 @@ const Blog = function () {
                 />
                 <Card.Body className="my-cb">
                   <Card.Title>{post.title.rendered}</Card.Title>
-                  <Link to={`/posts/${post.id}`}>Go somewhere</Link>
-                  <Button variant="danger" onClick={() => deletePost(post.id)}>
-                    Elimina
-                  </Button>
+                  <div className="d-flex gap-2">
+                    <Link to={`/posts/${post.id}`} className="btn btn-info ms-auto">
+                      Vedi
+                    </Link>
+                    <Button className="del-btn" variant="danger" onClick={() => deletePost(post.id)}>
+                      Elimina
+                    </Button>
+                  </div>
                 </Card.Body>
               </Card>
             </Col>
           ))}
+          <Pagination>
+            <Pagination.Prev
+              onClick={() => currentPage !== 1 && changePage(currentPage - 1)}
+              className={currentPage === 1 && "disabled"}
+            />
+            {genPagination().map((page) => (
+              <Pagination.Item key={page.n} className={`${page.active && "active"}`} onClick={() => changePage(page.n)}>
+                {page.n}
+              </Pagination.Item>
+            ))}
+
+            <Pagination.Next
+              onClick={() => currentPage !== 1 && changePage(currentPage + 1)}
+              className={currentPage === "lastPage" && "disabled"}
+            />
+          </Pagination>
         </Row>
       </Container>
     </>

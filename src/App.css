@@ -1,3 +1,65 @@
+body {
+  background-color: #7f5c4c;
+  position: relative;
+}
+
+.fix-nav {
+  position: fixed;
+  width: 100%;
+  z-index: 50;
+}
+
+.div-nav {
+  height: 10vh;
+}
+
+#navbar {
+  transition: opacity 0.3s ease-in-out;
+  opacity: 1;
+}
+
+.profile-wrapper {
+  height: 30vh;
+  position: relative;
+}
+
+.profile {
+  padding-block: 0.8rem;
+  width: 9rem;
+  position: fixed;
+  left: 88%;
+  top: 0;
+  text-align: center;
+  background-color: black;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  z-index: 1000;
+}
+
+.profile img {
+  width: 7rem;
+  border-radius: 35%;
+}
+
+.img1 {
+  position: absolute;
+  right: 138px;
+  top: 368px;
+  width: 14rem;
+}
+
+.img2 {
+  position: absolute;
+  top: 141px;
+  left: 84px;
+  width: 36rem;
+}
+
+.img1 img,
+.img2 img {
+  width: 100%;
+}
+
 .home-img {
   height: 35vh;
   object-fit: cover;
@@ -5,20 +67,22 @@
 }
 
 .h-card {
-  min-height: 350px;
+  min-height: 370px;
   max-height: 450px;
 }
 
 .my-cont {
-  background-image: url("https://images01.nicepage.io/4d/60/4d605873ee329581888a2a9891c5ba27.jpeg");
+  /* background-image: url("https://images01.nicepage.io/4d/60/4d605873ee329581888a2a9891c5ba27.jpeg"); */
   height: 90vh;
-  background-position: center;
+  /* background-position: center; */
 }
 
 .top-div {
   padding-left: 2rem;
   padding-block: 10rem;
   width: 40rem;
+  position: relative;
+  z-index: 10;
 }
 
 .top-div h1 {
@@ -32,4 +96,8 @@
   flex-direction: column;
   justify-content: space-between;
   box-shadow: 4px 3px 9px -4px #3d3d3d;
+}
+
+.del-btn {
+  width: 6rem;
 }
