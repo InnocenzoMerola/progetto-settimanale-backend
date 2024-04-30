@@ -16,7 +16,7 @@ const Blog = function () {
   const [deletes, setDeletes] = useState(0);
 
   useEffect(() => {
-    fetch(`${baseApiUrl}/posts?page=${currentPage}&_embed=1`)
+    fetch(`${baseApiUrl}/posts?page=${currentPage}&_embed=1&per_page=12`)
       .then((response) => {
         if (response.ok) {
           setLastPage(parseInt(response.headers.get("X-WP-TotalPages")));
