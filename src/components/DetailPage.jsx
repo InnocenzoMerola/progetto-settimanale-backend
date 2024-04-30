@@ -10,7 +10,6 @@ const DetailPage = function () {
   const [post, setPost] = useState(null);
   const [deletes, setDeletes] = useState(0);
   const [edit, setEdit] = useState(null);
-  const [clicked, setClicked] = useState(false);
 
   const { id } = useParams();
 
@@ -126,13 +125,12 @@ const DetailPage = function () {
               setEdit({
                 ...post,
               });
-              setClicked(true);
             }}
           >
             Modifica
           </Button>
         </div>
-        {clicked === true && (
+        {edit && (
           <Form onSubmit={handleSubmit} className="edit-form">
             <Form.Group controlId="title">
               <Form.Label className="text-white">Titolo</Form.Label>
