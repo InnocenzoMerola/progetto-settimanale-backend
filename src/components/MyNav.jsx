@@ -28,7 +28,7 @@ const MyNav = function () {
     <div className="div-nav">
       <Navbar collapseOnSelect expand="lg" id="navbar" className="bg-body-tertiary fix-nav">
         <Container>
-          <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+          <Navbar.Brand href="#i">I&M</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
