@@ -19,7 +19,7 @@ body {
 }
 
 .profile-wrapper {
-  height: 30vh;
+  height: 12vh;
   position: relative;
 }
 
@@ -43,20 +43,28 @@ body {
 
 .img1 {
   position: absolute;
-  right: 138px;
-  top: 368px;
+  right: 174px;
+  top: 352px;
   width: 14rem;
 }
 
 .img2 {
   position: absolute;
-  top: 141px;
-  left: 84px;
+  top: 80px;
+  left: 76px;
   width: 36rem;
 }
 
+.img3 {
+  position: absolute;
+  top: 702px;
+  left: 127px;
+  width: 43rem;
+}
+
 .img1 img,
-.img2 img {
+.img2 img,
+.img3 img {
   width: 100%;
 }
 
@@ -71,18 +79,26 @@ body {
   max-height: 450px;
 }
 
+.home-h-card {
+  width: 20rem;
+  height: 53vh;
+}
+
 .my-cont {
-  /* background-image: url("https://images01.nicepage.io/4d/60/4d605873ee329581888a2a9891c5ba27.jpeg"); */
   height: 90vh;
-  /* background-position: center; */
 }
 
 .top-div {
-  padding-left: 2rem;
-  padding-block: 10rem;
+  padding-inline: 5rem;
+  padding-block: 6rem;
   width: 40rem;
   position: relative;
   z-index: 10;
+  background-color: #000000c7;
+  border-top-right-radius: 172px;
+  margin-left: 2rem;
+  border-bottom-left-radius: 172px;
+  text-align: center;
 }
 
 .top-div h1 {
@@ -100,4 +116,20 @@ body {
 
 .del-btn {
   width: 6rem;
+}
+
+.dist-cont {
+  margin-top: 50rem;
+  margin-bottom: 2rem;
+}
+
+.edit-form {
+  padding: 20px;
+  background-color: #0000008a;
+  margin-top: 1rem;
+  border-radius: 25px;
+}
+
+figure {
+  text-align: center;
 }

@@ -38,9 +38,9 @@ const MyNav = function () {
               <Link className="nav-link" to="/blog">
                 Blog
               </Link>
-              {/* <Link className="nav-link" to="/back">
-              back
-            </Link> */}
+              <Link className="nav-link" to="/create">
+                Aggiungi
+              </Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

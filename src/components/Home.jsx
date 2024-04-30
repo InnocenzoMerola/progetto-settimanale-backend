@@ -32,19 +32,19 @@ const Home = function () {
     <>
       <Container fluid className="mb-4 my-cont">
         <BackHome />
-        <div className="mx-3 top-div">
+        <div className="top-div">
           <h1>Il mio viaggio</h1>
-          <h2>Alla scoperta di nuovi orizzonti</h2>
+          <h2 className="text-white">Alla scoperta di nuovi orizzonti</h2>
         </div>
-        <Container>
+        <Container className="dist-cont">
           <div className="text-center">
-            <h2>Le migliori tappe per l'estate 2024</h2>
-            <p>Ecco alcuni dei migliori posti in cui andare questa estate: mare, montagna e molto altro...</p>
+            <h2>Le migliori tappe visitate nell'ultimo anno</h2>
+            <p>Ecco alcuni dei migliori posti che ho visitato negli scorsi mesi</p>
           </div>
           <Row className="row-gap-3">
             {posts.slice(0, 3).map((post) => (
-              <Col xs={12} md={4} key={post.id}>
-                <Card className="h-card">
+              <Col xs={12} md={4} key={post.id} className="mb-5">
+                <Card className="home-h-card">
                   <Card.Img
                     variant="top"
                     className="home-img"
@@ -52,7 +52,12 @@ const Home = function () {
                   />
                   <Card.Body>
                     <Card.Title>{post.title.rendered}</Card.Title>
-                    <Link to={`/posts/${post.id}`}>Go somewhere</Link>
+
+                    <div className="d-flex gap-2">
+                      <Link to={`/posts/${post.id}`} className="btn btn-info ms-auto">
+                        Vedi
+                      </Link>
+                    </div>
                   </Card.Body>
                 </Card>
               </Col>

@@ -1,6 +1,7 @@
 import mare from "../img/Vista-mare.jpg";
 import montagna from "../img/montagna.jpg";
 import profilo1 from "../img/My Foto.jpg";
+import mont from "../img/mont.jpg";
 
 const BackHome = function () {
   return (
@@ -19,6 +20,9 @@ const BackHome = function () {
       </div>
       <div className="img2">
         <img src={mare} alt="mare" />
+      </div>
+      <div className="img3">
+        <img src={mont} alt="montagna" />
       </div>
     </div>
   );
